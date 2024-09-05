@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 type Difficulty = "easy" | "medium" | "hard";
 
 const paragraphs = {
-  easy: "This is an easy typing test",
-  medium: "Typing can be moderately challenging if we add some complexity",
-  hard: "Typing games can include complex punctuation, grammar, and less common vocabulary.",
+  easy: "Typing can be moderately challenging if we add some complexity",
+  medium:
+    "The quick brown fox jumps over a lazy dog. This sentence contains every letter in the English alphabet. Typing it helps to practice keyboard layout and improve typing skills. ",
+  hard: "As the sun slowly set over the horizon, painting the sky in shades of orange and pink, a gentle breeze whispered through the leaves of the old oak tree. In the distance, the melodious chirping of birds blended with the faint rustle of leaves, creating a symphony of nature’s sounds.",
 };
 
 const Game = () => {
@@ -81,7 +82,7 @@ const Game = () => {
       </div>
 
       {/* Display Paragraph */}
-      <div className="mb-4 ">
+      <div className="mb-4 text-wrap flex-wrap border p-5 border-gray-600 border-2 rounded-xl flex">
         {words.map((word, index) => (
           <span
             key={index}
