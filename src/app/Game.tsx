@@ -59,10 +59,11 @@ const Game = () => {
   return (
     <div className="p-4 max-w-lg mx-auto">
       {/* sellection */}
+
       <div className="mb-4">
         <label
           htmlFor="difficulty"
-          className="mr-2  font-extrabold font-serif text-3xl"
+          className="mr-2  font-extrabold font-serif text-3xl  "
         >
           Difficulty:
         </label>
@@ -70,7 +71,8 @@ const Game = () => {
           id="difficulty"
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value as Difficulty)}
-          className="p-2 border rounded "
+          className="p-2  font-serif
+           font-bold  border rounded "
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
@@ -79,15 +81,15 @@ const Game = () => {
       </div>
 
       {/* Display Paragraph */}
-      <div className="mb-4 md: ">
+      <div className="mb-4 ">
         {words.map((word, index) => (
           <span
             key={index}
-            className={`mr-2 ${
+            className={`mr-2 font-serif text-2xl ${
               index < typedWords.length
                 ? typedWords[index] === "correct"
-                  ? "text-green-500"
-                  : "text-red-500"
+                  ? "text-green-500 font-serif text-2xl"
+                  : "text-red-500 font-serif text-2xl"
                 : ""
             }`}
           >
@@ -112,7 +114,7 @@ const Game = () => {
         autoFocus
       />
 
-      <div className="mt-4">
+      <div className="mt-4 font-serif text-2xl text-black">
         <p>WPM: {wpm}</p>
         <p>Accuracy: {accuracy.toFixed(2)}%</p>
       </div>
