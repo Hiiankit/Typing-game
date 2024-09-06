@@ -1,4 +1,5 @@
 "use client";
+import { VscDebugRestart } from "react-icons/vsc";
 
 import { useState, useEffect } from "react";
 
@@ -21,13 +22,17 @@ const Game = () => {
   const [accuracy, setAccuracy] = useState(100);
 
   useEffect(() => {
+    resetGame();
+  }, [difficulty]);
+
+  const resetGame = () => {
     setWords(paragraphs[difficulty].split(" "));
     setTypedWords([]);
     setCurrentWord("");
     setStartTime(null);
     setWpm(0);
     setAccuracy(100);
-  }, [difficulty]);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
@@ -58,13 +63,13 @@ const Game = () => {
   };
 
   return (
-    <div className="p-4 bg-black h-screen  ">
-      {/* sellection */}
+    <div className="p-4 bg-black h-screen">
+      {/* Selection */}
       <header className="  flex justify-end items-end right-0">
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label
             htmlFor="difficulty"
-            className="mr-2 font-extrabold text-gray-500 font-serif text-xl"
+            className="mr-2 md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl"
           >
             Difficulty:
           </label>
@@ -72,17 +77,29 @@ const Game = () => {
             id="difficulty"
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value as Difficulty)}
-            className="py-1  font-serif text-gray-500 bg-black border-gray-500 font-bold border rounded"
+            className="py-1   mr-2 md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl bg-black border-gray-500  border rounded"
           >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
+            <option className="text-gray-400" value="easy">
+              Easy
+            </option>
+            <option className="text-gray-400" value="medium">
+              Medium
+            </option>
+            <option className="text-gray-400" value="hard">
+              Hard
+            </option>
           </select>
         </div>
       </header>
 
       {/* Display Paragraph */}
-      <div className="flex flex-col justify-center items-center  h-full">
+      <div className="flex flex-col gap-3 justify-center items-center  h-full">
+        <button
+          onClick={resetGame}
+          className="mt-4 p-2 bg-transparent   text-white rounded-xl font-bold hover:bg-gray-600"
+        >
+          <VscDebugRestart />
+        </button>
         <div className="mb-4 text-wrap flex-wrap w-1/2  p-5 text-gray-500 border-gray-600 border-2 rounded-xl flex">
           {words.map((word, index) => (
             <span
@@ -117,8 +134,9 @@ const Game = () => {
           autoFocus
         />
 
-        <div className="mt-4 font-serif text-2xl flex gap-5 text-gray-500">
-          <p>WPM: {wpm}</p>
+        {/* Stats */}
+        <div className="mt-4 font-serif text-2xl flex gap-5  md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
+          <p className="">WPM: {wpm}</p>
           <p>Accuracy: {accuracy.toFixed(2)}%</p>
         </div>
       </div>

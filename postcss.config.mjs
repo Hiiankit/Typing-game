@@ -2,9 +2,7 @@
 const config = {
   plugins: {
     tailwindcss: {},
-  },
-  theme: {
-    fontfamily: ["Red Hat Display", sans - serif],
+    autoprefixer: {}, // Optionally add autoprefixer
   },
 };
 
