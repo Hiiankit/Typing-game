@@ -63,81 +63,82 @@ const Game = () => {
   };
 
   return (
-    <div className="p-4 bg-black h-screen">
+    <div className="p-4 bg-black w-screen h-screen">
       {/* Selection */}
-      <header className="  flex justify-end items-end right-0">
-        <div className="mb-4 ">
-          <label
-            htmlFor="difficulty"
-            className="mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl"
-          >
-            Select Difficulty:
-          </label>
-          <select
-            id="difficulty"
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value as Difficulty)}
-            className="py-1   mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl bg-black border-gray-500  border rounded"
-          >
-            <option className="text-gray-400" value="easy">
-              Easy
-            </option>
-            <option className="text-gray-400" value="medium">
-              Medium
-            </option>
-            <option className="text-gray-400" value="hard">
-              Hard
-            </option>
-          </select>
-        </div>
-      </header>
+
+      <div className="mb-4  flex justify-end  ">
+        <label
+          htmlFor="difficulty"
+          className="mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl"
+        >
+          Select Difficulty:
+        </label>
+        <select
+          id="difficulty"
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value as Difficulty)}
+          className="py-1   mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl bg-black border-gray-500  border rounded"
+        >
+          <option className="text-gray-400" value="easy">
+            Easy
+          </option>
+          <option className="text-gray-400" value="medium">
+            Medium
+          </option>
+          <option className="text-gray-400" value="hard">
+            Hard
+          </option>
+        </select>
+      </div>
 
       {/* Display Paragraph */}
-      <div className="flex flex-col  gap-3 justify-center items-center">
-        <button
-          onClick={resetGame}
-          className="mt-4 p-2 bg-transparent   text-white rounded-xl font-bold hover:bg-gray-600"
-        >
-          <VscDebugRestart />
-        </button>
-        <div className="mb-4 text-wrap flex-wrap w-1/2  p-5 text-gray-500 border-gray-600 border-2 rounded-xl flex">
-          {words.map((word, index) => (
-            <span
-              key={index}
-              className={`mr-2 font-serif text-2xl ${
-                index < typedWords.length
-                  ? typedWords[index] === "correct"
-                    ? "text-green-500 font-serif text-2xl"
-                    : "text-red-500 font-serif text-2xl"
-                  : ""
-              }`}
-            >
-              {word}
-            </span>
-          ))}
-        </div>
+      <div>
+        <div className="flex flex-col  gap-3 justify-center items-center">
+          <button
+            onClick={resetGame}
+            className="mt-4 p-2 bg-transparent   text-white rounded-xl font-bold hover:bg-gray-600"
+          >
+            <VscDebugRestart />
+          </button>
+          <div className="mb-4 text-wrap flex-wrap w-1/2  p-5 text-gray-500 border-gray-600 border-2 rounded-xl flex">
+            {words.map((word, index) => (
+              <span
+                key={index}
+                className={`mr-2 font-serif text-2xl ${
+                  index < typedWords.length
+                    ? typedWords[index] === "correct"
+                      ? "text-green-500 font-serif text-2xl"
+                      : "text-red-500 font-serif text-2xl"
+                    : ""
+                }`}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
 
-        {/* Typing Input */}
-        <input
-          type="text"
-          placeholder="Type..."
-          value={currentWord}
-          onChange={handleInputChange}
-          className={`p-2 rounded-xl text-gray-500 bg-black border-gray-500 w-1/2  border-2 ${
-            currentWord && words[typedWords.length]?.startsWith(currentWord)
-              ? "border-green-500"
-              : currentWord
-              ? "border-red-500"
-              : ""
-          }`}
-          disabled={typedWords.length >= words.length}
-          autoFocus
-        />
+          {/* Typing Input */}
+          <input
+            type="text"
+            placeholder="Type..."
+            value={currentWord}
+            onChange={handleInputChange}
+            className={`p-2 rounded-xl text-gray-500 bg-black border-gray-500 w-1/2  border-2 ${
+              currentWord && words[typedWords.length]?.startsWith(currentWord)
+                ? "border-green-500"
+                : currentWord
+                ? "border-red-500"
+                : ""
+            }`}
+            disabled={typedWords.length >= words.length}
+            autoFocus
+          />
 
-        {/* Stats */}
-        <div className="mt-4 font-serif text-2xl flex gap-5  font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
-          <p className="">WPM: {wpm}</p>
-          <p>Accuracy: {accuracy.toFixed(2)}%</p>
+          {/* Stats */}
+          <div className="mt-4 font-serif text-2xl flex gap-5  font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
+            <p className="">WPM: {wpm}</p>
+            <p>Accuracy: {accuracy.toFixed(2)}%</p>
+          </div>
         </div>
       </div>
     </div>
