@@ -69,7 +69,7 @@ const Game = () => {
         <div className="mb-4 ">
           <label
             htmlFor="difficulty"
-            className="mr-2 md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl"
+            className="mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl"
           >
             Select Difficulty:
           </label>
@@ -77,7 +77,7 @@ const Game = () => {
             id="difficulty"
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value as Difficulty)}
-            className="py-1   mr-2 md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl bg-black border-gray-500  border rounded"
+            className="py-1   mr-2 font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500 font-serif text-xl bg-black border-gray-500  border rounded"
           >
             <option className="text-gray-400" value="easy">
               Easy
@@ -93,7 +93,7 @@ const Game = () => {
       </header>
 
       {/* Display Paragraph */}
-      <div className="flex flex-col gap-3 justify-center items-center  h-full">
+      <div className="flex flex-col  gap-3 justify-center items-center">
         <button
           onClick={resetGame}
           className="mt-4 p-2 bg-transparent   text-white rounded-xl font-bold hover:bg-gray-600"
@@ -135,7 +135,7 @@ const Game = () => {
         />
 
         {/* Stats */}
-        <div className="mt-4 font-serif text-2xl flex gap-5  md:text-9xl font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
+        <div className="mt-4 font-serif text-2xl flex gap-5  font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
           <p className="">WPM: {wpm}</p>
           <p>Accuracy: {accuracy.toFixed(2)}%</p>
         </div>
