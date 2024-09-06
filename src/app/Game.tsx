@@ -63,7 +63,7 @@ const Game = () => {
   };
 
   return (
-    <div className="p-4 bg-black w-screen h-screen">
+    <div className="p-4 sm:h-screen bg-black w-screen h-screen">
       {/* Selection */}
 
       <div className="mb-4  flex justify-end  ">
@@ -135,7 +135,7 @@ const Game = () => {
           />
 
           {/* Stats */}
-          <div className="mt-4 font-serif text-2xl flex gap-5  font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
+          <div className="  mt-4 font-serif text-2xl flex gap-5  font-extrabold bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.indigo.400),theme(colors.indigo.100),theme(colors.sky.400),theme(colors.fuchsia.400),theme(colors.sky.400),theme(colors.indigo.100),theme(colors.indigo.400))] bg-[length:200%_auto] animate-gradient text-gray-500">
             <p className="">WPM: {wpm}</p>
             <p>Accuracy: {accuracy.toFixed(2)}%</p>
           </div>
