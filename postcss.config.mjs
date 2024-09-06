@@ -3,6 +3,9 @@ const config = {
   plugins: {
     tailwindcss: {},
   },
+  theme: {
+    fontfamily: ["Red Hat Display", sans - serif],
+  },
 };
 
 export default config;

@@ -58,67 +58,69 @@ const Game = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
+    <div className="p-4 bg-black h-screen  ">
       {/* sellection */}
-
-      <div className="mb-4">
-        <label
-          htmlFor="difficulty"
-          className="mr-2  font-extrabold font-serif text-3xl  "
-        >
-          Difficulty:
-        </label>
-        <select
-          id="difficulty"
-          value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value as Difficulty)}
-          className="p-2  font-serif
-           font-bold  border rounded "
-        >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </div>
+      <header className="  flex justify-end items-end right-0">
+        <div className="mb-4">
+          <label
+            htmlFor="difficulty"
+            className="mr-2 font-extrabold text-gray-500 font-serif text-xl"
+          >
+            Difficulty:
+          </label>
+          <select
+            id="difficulty"
+            value={difficulty}
+            onChange={(e) => setDifficulty(e.target.value as Difficulty)}
+            className="py-1  font-serif text-gray-500 bg-black border-gray-500 font-bold border rounded"
+          >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+      </header>
 
       {/* Display Paragraph */}
-      <div className="mb-4 text-wrap flex-wrap border p-5 border-gray-600 border-2 rounded-xl flex">
-        {words.map((word, index) => (
-          <span
-            key={index}
-            className={`mr-2 font-serif text-2xl ${
-              index < typedWords.length
-                ? typedWords[index] === "correct"
-                  ? "text-green-500 font-serif text-2xl"
-                  : "text-red-500 font-serif text-2xl"
-                : ""
-            }`}
-          >
-            {word}
-          </span>
-        ))}
-      </div>
+      <div className="flex flex-col justify-center items-center  h-full">
+        <div className="mb-4 text-wrap flex-wrap w-1/2  p-5 text-gray-500 border-gray-600 border-2 rounded-xl flex">
+          {words.map((word, index) => (
+            <span
+              key={index}
+              className={`mr-2 font-serif text-2xl ${
+                index < typedWords.length
+                  ? typedWords[index] === "correct"
+                    ? "text-green-500 font-serif text-2xl"
+                    : "text-red-500 font-serif text-2xl"
+                  : ""
+              }`}
+            >
+              {word}
+            </span>
+          ))}
+        </div>
 
-      {/* Typing Input */}
-      <input
-        type="text"
-        placeholder="Type..."
-        value={currentWord}
-        onChange={handleInputChange}
-        className={`p-2 rounded-xl border-gray-600 rounded w-full border-2 ${
-          currentWord && words[typedWords.length]?.startsWith(currentWord)
-            ? "border-green-500"
-            : currentWord
-            ? "border-red-500"
-            : ""
-        }`}
-        disabled={typedWords.length >= words.length}
-        autoFocus
-      />
+        {/* Typing Input */}
+        <input
+          type="text"
+          placeholder="Type..."
+          value={currentWord}
+          onChange={handleInputChange}
+          className={`p-2 rounded-xl border-gray-600 w-1/2  border-2 ${
+            currentWord && words[typedWords.length]?.startsWith(currentWord)
+              ? "border-green-500"
+              : currentWord
+              ? "border-red-500"
+              : ""
+          }`}
+          disabled={typedWords.length >= words.length}
+          autoFocus
+        />
 
-      <div className="mt-4 font-serif text-2xl text-black">
-        <p>WPM: {wpm}</p>
-        <p>Accuracy: {accuracy.toFixed(2)}%</p>
+        <div className="mt-4 font-serif text-2xl flex gap-5 text-gray-500">
+          <p>WPM: {wpm}</p>
+          <p>Accuracy: {accuracy.toFixed(2)}%</p>
+        </div>
       </div>
     </div>
   );
