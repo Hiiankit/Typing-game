@@ -123,7 +123,7 @@ const Game = () => {
           placeholder="Type..."
           value={currentWord}
           onChange={handleInputChange}
-          className={`p-2 rounded-xl border-gray-600 w-1/2  border-2 ${
+          className={`p-2 rounded-xl text-gray-500 bg-black border-gray-500 w-1/2  border-2 ${
             currentWord && words[typedWords.length]?.startsWith(currentWord)
               ? "border-green-500"
               : currentWord
